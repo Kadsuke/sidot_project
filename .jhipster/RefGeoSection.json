@@ -1,0 +1,30 @@
+{
+  "name": "RefGeoSection",
+  "fields": [
+    {
+      "fieldName": "sectionName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoLot",
+      "otherEntityRelationshipName": "refGeoSection",
+      "relationshipName": "lot",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201014085837",
+  "entityTableName": "ref_geo_section",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

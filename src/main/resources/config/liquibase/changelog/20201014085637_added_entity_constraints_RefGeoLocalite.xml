@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity RefGeoLocalite.
+    -->
+    <changeSet id="20201014085637-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="secteur_id"
+                                 baseTableName="ref_geo_localite"
+                                 constraintName="fk_ref_geo_localite_secteur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ref_geo_secteur"/>
+
+    </changeSet>
+</databaseChangeLog>

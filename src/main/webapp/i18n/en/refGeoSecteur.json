@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "refGeoSecteur": {
+      "home": {
+        "title": "Ref Geo Secteurs",
+        "createLabel": "Create a new Ref Geo Secteur",
+        "createOrEditLabel": "Create or edit a Ref Geo Secteur",
+        "notFound": "No Ref Geo Secteurs found"
+      },
+      "created": "A new Ref Geo Secteur is created with identifier {{ param }}",
+      "updated": "A Ref Geo Secteur is updated with identifier {{ param }}",
+      "deleted": "A Ref Geo Secteur is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ref Geo Secteur {{ id }}?"
+      },
+      "detail": {
+        "title": "Ref Geo Secteur"
+      },
+      "secteurName": "Secteur Name",
+      "section": "Section"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refGeoTypeCommune">
+            <h2><span jhiTranslate="sidotApp.refGeoTypeCommune.detail.title">Ref Geo Type Commune</span> {{ refGeoTypeCommune.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.refGeoTypeCommune.typeName">Type Name</span></dt>
+                <dd>
+                    <span>{{ refGeoTypeCommune.typeName }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.refGeoTypeCommune.commune">Commune</span></dt>
+                <dd>
+                    <div *ngIf="refGeoTypeCommune.commune">
+                        <a [routerLink]="['/ref-geo-commune', refGeoTypeCommune.commune?.id, 'view']">{{ refGeoTypeCommune.commune?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ref-geo-type-commune', refGeoTypeCommune.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

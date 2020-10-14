@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refGeoLot">
+            <h2><span jhiTranslate="sidotApp.refGeoLot.detail.title">Ref Geo Lot</span> {{ refGeoLot.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.refGeoLot.lotName">Lot Name</span></dt>
+                <dd>
+                    <span>{{ refGeoLot.lotName }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.refGeoLot.parcelle">Parcelle</span></dt>
+                <dd>
+                    <div *ngIf="refGeoLot.parcelle">
+                        <a [routerLink]="['/ref-geo-parcelle', refGeoLot.parcelle?.id, 'view']">{{ refGeoLot.parcelle?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ref-geo-lot', refGeoLot.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

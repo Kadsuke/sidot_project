@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "refGeoRegion": "Ref Geo Region",
+        "refGeoProvince": "Ref Geo Province",
+        "refGeoCommune": "Ref Geo Commune",
+        "refGeoTypeCommune": "Ref Geo Type Commune",
+        "refGeoLocalite": "Ref Geo Localite",
+        "refGeoSecteur": "Ref Geo Secteur",
+        "refGeoSection": "Ref Geo Section",
+        "refGeoLot": "Ref Geo Lot",
+        "refGeoParcelle": "Ref Geo Parcelle",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

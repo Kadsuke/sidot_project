@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "refGeoLot": {
+      "home": {
+        "title": "RefGeoLots",
+        "createLabel": "Créer un nouveau Ref Geo Lot",
+        "createOrEditLabel": "Créer ou éditer un Ref Geo Lot",
+        "notFound": "Aucun Ref Geo Lot trouvé"
+      },
+      "created": "Un nouveau Ref Geo Lot a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Geo Lot avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Geo Lot avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Geo Lot {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Geo Lot"
+      },
+      "lotName": "Lot Name",
+      "parcelle": "Parcelle"
+    }
+  }
+}

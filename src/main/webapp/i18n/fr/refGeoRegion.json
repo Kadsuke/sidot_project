@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "refGeoRegion": {
+      "home": {
+        "title": "RefGeoRegions",
+        "createLabel": "Créer un nouveau Ref Geo Region",
+        "createOrEditLabel": "Créer ou éditer un Ref Geo Region",
+        "notFound": "Aucun Ref Geo Region trouvé"
+      },
+      "created": "Un nouveau Ref Geo Region a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Geo Region avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Geo Region avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Geo Region {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Geo Region"
+      },
+      "regionName": "Region Name",
+      "province": "Province"
+    }
+  }
+}

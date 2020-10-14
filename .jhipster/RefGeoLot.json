@@ -1,0 +1,30 @@
+{
+  "name": "RefGeoLot",
+  "fields": [
+    {
+      "fieldName": "lotName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoParcelle",
+      "otherEntityRelationshipName": "refGeoLot",
+      "relationshipName": "parcelle",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201014085937",
+  "entityTableName": "ref_geo_lot",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

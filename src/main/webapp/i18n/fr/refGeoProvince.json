@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "refGeoProvince": {
+      "home": {
+        "title": "RefGeoProvinces",
+        "createLabel": "Créer un nouveau Ref Geo Province",
+        "createOrEditLabel": "Créer ou éditer un Ref Geo Province",
+        "notFound": "Aucun Ref Geo Province trouvé"
+      },
+      "created": "Un nouveau Ref Geo Province a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Geo Province avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Geo Province avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Geo Province {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Geo Province"
+      },
+      "provinceName": "Province Name",
+      "commune": "Commune"
+    }
+  }
+}

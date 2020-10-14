@@ -47,6 +47,15 @@ public class CacheConfiguration {
             createCache(cm, com.onea.sidot.domain.User.class.getName());
             createCache(cm, com.onea.sidot.domain.Authority.class.getName());
             createCache(cm, com.onea.sidot.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.onea.sidot.domain.RefGeoRegion.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoProvince.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoCommune.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoTypeCommune.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoLocalite.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoSecteur.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoSection.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoLot.class.getName());
+            createCache(cm, com.onea.sidot.domain.RefGeoParcelle.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

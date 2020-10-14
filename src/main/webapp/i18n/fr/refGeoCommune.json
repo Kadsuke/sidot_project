@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "refGeoCommune": {
+      "home": {
+        "title": "RefGeoCommunes",
+        "createLabel": "Créer un nouveau Ref Geo Commune",
+        "createOrEditLabel": "Créer ou éditer un Ref Geo Commune",
+        "notFound": "Aucun Ref Geo Commune trouvé"
+      },
+      "created": "Un nouveau Ref Geo Commune a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Geo Commune avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Geo Commune avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Geo Commune {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Geo Commune"
+      },
+      "communeName": "Commune Name",
+      "localite": "Localite"
+    }
+  }
+}
