@@ -43,7 +43,11 @@ describe('RefGeoCommune e2e test', () => {
 
     await refGeoCommuneComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoCommuneUpdatePage.setCommuneNameInput('communeName'), refGeoCommuneUpdatePage.localiteSelectLastOption()]);
+    await promise.all([
+      refGeoCommuneUpdatePage.setCommuneNameInput('communeName'),
+      refGeoCommuneUpdatePage.provinceSelectLastOption(),
+      refGeoCommuneUpdatePage.typecommuneSelectLastOption(),
+    ]);
 
     expect(await refGeoCommuneUpdatePage.getCommuneNameInput()).to.eq(
       'communeName',

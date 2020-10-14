@@ -24,6 +24,7 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="parcelleName"><span jhiTranslate="sidotApp.refGeoParcelle.parcelleName">Parcelle Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lot.id"><span jhiTranslate="sidotApp.refGeoParcelle.lot">Lot</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -31,6 +32,11 @@
                 <tr *ngFor="let refGeoParcelle of refGeoParcelles ;trackBy: trackId">
                     <td><a [routerLink]="['/ref-geo-parcelle', refGeoParcelle.id, 'view']">{{ refGeoParcelle.id }}</a></td>
                     <td>{{ refGeoParcelle.parcelleName }}</td>
+                    <td>
+                        <div *ngIf="refGeoParcelle.lot">
+                            <a [routerLink]="['/ref-geo-lot', refGeoParcelle.lot?.id, 'view']" >{{ refGeoParcelle.lot?.id }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

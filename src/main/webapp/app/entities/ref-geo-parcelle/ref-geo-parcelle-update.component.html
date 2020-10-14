@@ -16,6 +16,14 @@
                     <input type="text" class="form-control" name="parcelleName" id="field_parcelleName"
                            formControlName="parcelleName"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoParcelle.lot" for="field_lot">Lot</label>
+                    <select class="form-control" id="field_lot" name="lot" formControlName="lot">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="refGeoLotOption.id === editForm.get('lot')!.value?.id ? editForm.get('lot')!.value : refGeoLotOption" *ngFor="let refGeoLotOption of lots; trackBy: trackById">{{ refGeoLotOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

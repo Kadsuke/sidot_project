@@ -18,10 +18,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoCommune.localite" for="field_localite">Localite</label>
-                    <select class="form-control" id="field_localite" name="localite" formControlName="localite">
+                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoCommune.province" for="field_province">Province</label>
+                    <select class="form-control" id="field_province" name="province" formControlName="province">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="refGeoLocaliteOption.id === editForm.get('localite')!.value?.id ? editForm.get('localite')!.value : refGeoLocaliteOption" *ngFor="let refGeoLocaliteOption of localites; trackBy: trackById">{{ refGeoLocaliteOption.id }}</option>
+                        <option [ngValue]="refGeoProvinceOption.id === editForm.get('province')!.value?.id ? editForm.get('province')!.value : refGeoProvinceOption" *ngFor="let refGeoProvinceOption of provinces; trackBy: trackById">{{ refGeoProvinceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoCommune.typecommune" for="field_typecommune">Typecommune</label>
+                    <select class="form-control" id="field_typecommune" name="typecommune" formControlName="typecommune">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="refGeoTypeCommuneOption.id === editForm.get('typecommune')!.value?.id ? editForm.get('typecommune')!.value : refGeoTypeCommuneOption" *ngFor="let refGeoTypeCommuneOption of typecommunes; trackBy: trackById">{{ refGeoTypeCommuneOption.id }}</option>
                     </select>
                 </div>
             </div>

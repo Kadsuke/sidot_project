@@ -16,14 +16,6 @@
                     <input type="text" class="form-control" name="typeName" id="field_typeName"
                            formControlName="typeName"/>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoTypeCommune.commune" for="field_commune">Commune</label>
-                    <select class="form-control" id="field_commune" name="commune" formControlName="commune">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="refGeoCommuneOption.id === editForm.get('commune')!.value?.id ? editForm.get('commune')!.value : refGeoCommuneOption" *ngFor="let refGeoCommuneOption of communes; trackBy: trackById">{{ refGeoCommuneOption.id }}</option>
-                    </select>
-                </div>
             </div>
 
             <div>

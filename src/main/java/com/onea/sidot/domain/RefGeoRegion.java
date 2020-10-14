@@ -25,10 +25,6 @@ public class RefGeoRegion implements Serializable {
     @Column(name = "region_name")
     private String regionName;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private RefGeoProvince province;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -49,19 +45,6 @@ public class RefGeoRegion implements Serializable {
 
     public void setRegionName(String regionName) {
         this.regionName = regionName;
-    }
-
-    public RefGeoProvince getProvince() {
-        return province;
-    }
-
-    public RefGeoRegion province(RefGeoProvince refGeoProvince) {
-        this.province = refGeoProvince;
-        return this;
-    }
-
-    public void setProvince(RefGeoProvince refGeoProvince) {
-        this.province = refGeoProvince;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -4,12 +4,9 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IRefGeoTypeCommune, RefGeoTypeCommune } from 'app/shared/model/ref-geo-type-commune.model';
 import { RefGeoTypeCommuneService } from './ref-geo-type-commune.service';
-import { IRefGeoCommune } from 'app/shared/model/ref-geo-commune.model';
-import { RefGeoCommuneService } from 'app/entities/ref-geo-commune/ref-geo-commune.service';
 
 @Component({
   selector: 'jhi-ref-geo-type-commune-update',
@@ -17,17 +14,14 @@ import { RefGeoCommuneService } from 'app/entities/ref-geo-commune/ref-geo-commu
 })
 export class RefGeoTypeCommuneUpdateComponent implements OnInit {
   isSaving = false;
-  communes: IRefGeoCommune[] = [];
 
   editForm = this.fb.group({
     id: [],
     typeName: [],
-    commune: [],
   });
 
   constructor(
     protected refGeoTypeCommuneService: RefGeoTypeCommuneService,
-    protected refGeoCommuneService: RefGeoCommuneService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -35,28 +29,6 @@ export class RefGeoTypeCommuneUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ refGeoTypeCommune }) => {
       this.updateForm(refGeoTypeCommune);
-
-      this.refGeoCommuneService
-        .query({ filter: 'refgeotypecommune-is-null' })
-        .pipe(
-          map((res: HttpResponse<IRefGeoCommune[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IRefGeoCommune[]) => {
-          if (!refGeoTypeCommune.commune || !refGeoTypeCommune.commune.id) {
-            this.communes = resBody;
-          } else {
-            this.refGeoCommuneService
-              .find(refGeoTypeCommune.commune.id)
-              .pipe(
-                map((subRes: HttpResponse<IRefGeoCommune>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IRefGeoCommune[]) => (this.communes = concatRes));
-          }
-        });
     });
   }
 
@@ -64,7 +36,6 @@ export class RefGeoTypeCommuneUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: refGeoTypeCommune.id,
       typeName: refGeoTypeCommune.typeName,
-      commune: refGeoTypeCommune.commune,
     });
   }
 
@@ -87,7 +58,6 @@ export class RefGeoTypeCommuneUpdateComponent implements OnInit {
       ...new RefGeoTypeCommune(),
       id: this.editForm.get(['id'])!.value,
       typeName: this.editForm.get(['typeName'])!.value,
-      commune: this.editForm.get(['commune'])!.value,
     };
   }
 
@@ -105,9 +75,5 @@ export class RefGeoTypeCommuneUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: IRefGeoCommune): any {
-    return item.id;
   }
 }

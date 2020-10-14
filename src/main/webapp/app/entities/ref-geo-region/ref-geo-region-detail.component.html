@@ -12,12 +12,6 @@
                 <dd>
                     <span>{{ refGeoRegion.regionName }}</span>
                 </dd>
-                <dt><span jhiTranslate="sidotApp.refGeoRegion.province">Province</span></dt>
-                <dd>
-                    <div *ngIf="refGeoRegion.province">
-                        <a [routerLink]="['/ref-geo-province', refGeoRegion.province?.id, 'view']">{{ refGeoRegion.province?.id }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

@@ -1,11 +1,11 @@
-import { IRefGeoSecteur } from 'app/shared/model/ref-geo-secteur.model';
+import { IRefGeoCommune } from 'app/shared/model/ref-geo-commune.model';
 
 export interface IRefGeoLocalite {
   id?: number;
   localiteName?: string;
-  secteur?: IRefGeoSecteur;
+  commune?: IRefGeoCommune;
 }
 
 export class RefGeoLocalite implements IRefGeoLocalite {
-  constructor(public id?: number, public localiteName?: string, public secteur?: IRefGeoSecteur) {}
+  constructor(public id?: number, public localiteName?: string, public commune?: IRefGeoCommune) {}
 }

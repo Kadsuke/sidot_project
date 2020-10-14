@@ -12,10 +12,16 @@
                 <dd>
                     <span>{{ refGeoCommune.communeName }}</span>
                 </dd>
-                <dt><span jhiTranslate="sidotApp.refGeoCommune.localite">Localite</span></dt>
+                <dt><span jhiTranslate="sidotApp.refGeoCommune.province">Province</span></dt>
                 <dd>
-                    <div *ngIf="refGeoCommune.localite">
-                        <a [routerLink]="['/ref-geo-localite', refGeoCommune.localite?.id, 'view']">{{ refGeoCommune.localite?.id }}</a>
+                    <div *ngIf="refGeoCommune.province">
+                        <a [routerLink]="['/ref-geo-province', refGeoCommune.province?.id, 'view']">{{ refGeoCommune.province?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.refGeoCommune.typecommune">Typecommune</span></dt>
+                <dd>
+                    <div *ngIf="refGeoCommune.typecommune">
+                        <a [routerLink]="['/ref-geo-type-commune', refGeoCommune.typecommune?.id, 'view']">{{ refGeoCommune.typecommune?.id }}</a>
                     </div>
                 </dd>
             </dl>

@@ -43,7 +43,7 @@ describe('RefGeoRegion e2e test', () => {
 
     await refGeoRegionComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoRegionUpdatePage.setRegionNameInput('regionName'), refGeoRegionUpdatePage.provinceSelectLastOption()]);
+    await promise.all([refGeoRegionUpdatePage.setRegionNameInput('regionName')]);
 
     expect(await refGeoRegionUpdatePage.getRegionNameInput()).to.eq('regionName', 'Expected RegionName value to be equals to regionName');
 

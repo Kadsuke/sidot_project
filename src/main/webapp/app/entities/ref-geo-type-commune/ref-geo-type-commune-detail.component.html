@@ -12,12 +12,6 @@
                 <dd>
                     <span>{{ refGeoTypeCommune.typeName }}</span>
                 </dd>
-                <dt><span jhiTranslate="sidotApp.refGeoTypeCommune.commune">Commune</span></dt>
-                <dd>
-                    <div *ngIf="refGeoTypeCommune.commune">
-                        <a [routerLink]="['/ref-geo-commune', refGeoTypeCommune.commune?.id, 'view']">{{ refGeoTypeCommune.commune?.id }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

@@ -40,7 +40,7 @@ describe('RefGeoLot e2e test', () => {
 
     await refGeoLotComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoLotUpdatePage.setLotNameInput('lotName'), refGeoLotUpdatePage.parcelleSelectLastOption()]);
+    await promise.all([refGeoLotUpdatePage.setLotNameInput('lotName'), refGeoLotUpdatePage.sectionSelectLastOption()]);
 
     expect(await refGeoLotUpdatePage.getLotNameInput()).to.eq('lotName', 'Expected LotName value to be equals to lotName');
 

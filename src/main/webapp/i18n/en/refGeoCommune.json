@@ -17,7 +17,8 @@
         "title": "Ref Geo Commune"
       },
       "communeName": "Commune Name",
-      "localite": "Localite"
+      "province": "Province",
+      "typecommune": "Typecommune"
     }
   }
 }

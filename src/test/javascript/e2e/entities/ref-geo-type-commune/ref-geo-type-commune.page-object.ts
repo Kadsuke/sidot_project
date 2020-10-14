@@ -31,8 +31,6 @@ export class RefGeoTypeCommuneUpdatePage {
 
   typeNameInput = element(by.id('field_typeName'));
 
-  communeSelect = element(by.id('field_commune'));
-
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
@@ -43,22 +41,6 @@ export class RefGeoTypeCommuneUpdatePage {
 
   async getTypeNameInput(): Promise<string> {
     return await this.typeNameInput.getAttribute('value');
-  }
-
-  async communeSelectLastOption(): Promise<void> {
-    await this.communeSelect.all(by.tagName('option')).last().click();
-  }
-
-  async communeSelectOption(option: string): Promise<void> {
-    await this.communeSelect.sendKeys(option);
-  }
-
-  getCommuneSelect(): ElementFinder {
-    return this.communeSelect;
-  }
-
-  async getCommuneSelectedOption(): Promise<string> {
-    return await this.communeSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

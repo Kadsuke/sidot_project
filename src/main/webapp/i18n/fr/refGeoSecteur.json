@@ -17,7 +17,7 @@
         "title": "Ref Geo Secteur"
       },
       "secteurName": "Secteur Name",
-      "section": "Section"
+      "localite": "Localite"
     }
   }
 }

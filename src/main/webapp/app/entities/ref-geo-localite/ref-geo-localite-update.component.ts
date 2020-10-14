@@ -8,8 +8,8 @@ import { map } from 'rxjs/operators';
 
 import { IRefGeoLocalite, RefGeoLocalite } from 'app/shared/model/ref-geo-localite.model';
 import { RefGeoLocaliteService } from './ref-geo-localite.service';
-import { IRefGeoSecteur } from 'app/shared/model/ref-geo-secteur.model';
-import { RefGeoSecteurService } from 'app/entities/ref-geo-secteur/ref-geo-secteur.service';
+import { IRefGeoCommune } from 'app/shared/model/ref-geo-commune.model';
+import { RefGeoCommuneService } from 'app/entities/ref-geo-commune/ref-geo-commune.service';
 
 @Component({
   selector: 'jhi-ref-geo-localite-update',
@@ -17,17 +17,17 @@ import { RefGeoSecteurService } from 'app/entities/ref-geo-secteur/ref-geo-secte
 })
 export class RefGeoLocaliteUpdateComponent implements OnInit {
   isSaving = false;
-  secteurs: IRefGeoSecteur[] = [];
+  communes: IRefGeoCommune[] = [];
 
   editForm = this.fb.group({
     id: [],
     localiteName: [],
-    secteur: [],
+    commune: [],
   });
 
   constructor(
     protected refGeoLocaliteService: RefGeoLocaliteService,
-    protected refGeoSecteurService: RefGeoSecteurService,
+    protected refGeoCommuneService: RefGeoCommuneService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,25 +36,25 @@ export class RefGeoLocaliteUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ refGeoLocalite }) => {
       this.updateForm(refGeoLocalite);
 
-      this.refGeoSecteurService
+      this.refGeoCommuneService
         .query({ filter: 'refgeolocalite-is-null' })
         .pipe(
-          map((res: HttpResponse<IRefGeoSecteur[]>) => {
+          map((res: HttpResponse<IRefGeoCommune[]>) => {
             return res.body || [];
           })
         )
-        .subscribe((resBody: IRefGeoSecteur[]) => {
-          if (!refGeoLocalite.secteur || !refGeoLocalite.secteur.id) {
-            this.secteurs = resBody;
+        .subscribe((resBody: IRefGeoCommune[]) => {
+          if (!refGeoLocalite.commune || !refGeoLocalite.commune.id) {
+            this.communes = resBody;
           } else {
-            this.refGeoSecteurService
-              .find(refGeoLocalite.secteur.id)
+            this.refGeoCommuneService
+              .find(refGeoLocalite.commune.id)
               .pipe(
-                map((subRes: HttpResponse<IRefGeoSecteur>) => {
+                map((subRes: HttpResponse<IRefGeoCommune>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IRefGeoSecteur[]) => (this.secteurs = concatRes));
+              .subscribe((concatRes: IRefGeoCommune[]) => (this.communes = concatRes));
           }
         });
     });
@@ -64,7 +64,7 @@ export class RefGeoLocaliteUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: refGeoLocalite.id,
       localiteName: refGeoLocalite.localiteName,
-      secteur: refGeoLocalite.secteur,
+      commune: refGeoLocalite.commune,
     });
   }
 
@@ -87,7 +87,7 @@ export class RefGeoLocaliteUpdateComponent implements OnInit {
       ...new RefGeoLocalite(),
       id: this.editForm.get(['id'])!.value,
       localiteName: this.editForm.get(['localiteName'])!.value,
-      secteur: this.editForm.get(['secteur'])!.value,
+      commune: this.editForm.get(['commune'])!.value,
     };
   }
 
@@ -107,7 +107,7 @@ export class RefGeoLocaliteUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IRefGeoSecteur): any {
+  trackById(index: number, item: IRefGeoCommune): any {
     return item.id;
   }
 }

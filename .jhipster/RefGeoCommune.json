@@ -9,9 +9,17 @@
   "relationships": [
     {
       "relationshipType": "one-to-one",
-      "otherEntityName": "refGeoLocalite",
+      "otherEntityName": "refGeoProvince",
       "otherEntityRelationshipName": "refGeoCommune",
-      "relationshipName": "localite",
+      "relationshipName": "province",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoTypeCommune",
+      "otherEntityRelationshipName": "refGeoCommune",
+      "relationshipName": "typecommune",
       "otherEntityField": "id",
       "ownerSide": true
     }

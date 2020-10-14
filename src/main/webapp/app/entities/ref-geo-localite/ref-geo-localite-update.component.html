@@ -18,10 +18,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoLocalite.secteur" for="field_secteur">Secteur</label>
-                    <select class="form-control" id="field_secteur" name="secteur" formControlName="secteur">
+                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoLocalite.commune" for="field_commune">Commune</label>
+                    <select class="form-control" id="field_commune" name="commune" formControlName="commune">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="refGeoSecteurOption.id === editForm.get('secteur')!.value?.id ? editForm.get('secteur')!.value : refGeoSecteurOption" *ngFor="let refGeoSecteurOption of secteurs; trackBy: trackById">{{ refGeoSecteurOption.id }}</option>
+                        <option [ngValue]="refGeoCommuneOption.id === editForm.get('commune')!.value?.id ? editForm.get('commune')!.value : refGeoCommuneOption" *ngFor="let refGeoCommuneOption of communes; trackBy: trackById">{{ refGeoCommuneOption.id }}</option>
                     </select>
                 </div>
             </div>

@@ -8,8 +8,8 @@ import { map } from 'rxjs/operators';
 
 import { IRefGeoSection, RefGeoSection } from 'app/shared/model/ref-geo-section.model';
 import { RefGeoSectionService } from './ref-geo-section.service';
-import { IRefGeoLot } from 'app/shared/model/ref-geo-lot.model';
-import { RefGeoLotService } from 'app/entities/ref-geo-lot/ref-geo-lot.service';
+import { IRefGeoSecteur } from 'app/shared/model/ref-geo-secteur.model';
+import { RefGeoSecteurService } from 'app/entities/ref-geo-secteur/ref-geo-secteur.service';
 
 @Component({
   selector: 'jhi-ref-geo-section-update',
@@ -17,17 +17,17 @@ import { RefGeoLotService } from 'app/entities/ref-geo-lot/ref-geo-lot.service';
 })
 export class RefGeoSectionUpdateComponent implements OnInit {
   isSaving = false;
-  lots: IRefGeoLot[] = [];
+  secteurs: IRefGeoSecteur[] = [];
 
   editForm = this.fb.group({
     id: [],
     sectionName: [],
-    lot: [],
+    secteur: [],
   });
 
   constructor(
     protected refGeoSectionService: RefGeoSectionService,
-    protected refGeoLotService: RefGeoLotService,
+    protected refGeoSecteurService: RefGeoSecteurService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,25 +36,25 @@ export class RefGeoSectionUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ refGeoSection }) => {
       this.updateForm(refGeoSection);
 
-      this.refGeoLotService
+      this.refGeoSecteurService
         .query({ filter: 'refgeosection-is-null' })
         .pipe(
-          map((res: HttpResponse<IRefGeoLot[]>) => {
+          map((res: HttpResponse<IRefGeoSecteur[]>) => {
             return res.body || [];
           })
         )
-        .subscribe((resBody: IRefGeoLot[]) => {
-          if (!refGeoSection.lot || !refGeoSection.lot.id) {
-            this.lots = resBody;
+        .subscribe((resBody: IRefGeoSecteur[]) => {
+          if (!refGeoSection.secteur || !refGeoSection.secteur.id) {
+            this.secteurs = resBody;
           } else {
-            this.refGeoLotService
-              .find(refGeoSection.lot.id)
+            this.refGeoSecteurService
+              .find(refGeoSection.secteur.id)
               .pipe(
-                map((subRes: HttpResponse<IRefGeoLot>) => {
+                map((subRes: HttpResponse<IRefGeoSecteur>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IRefGeoLot[]) => (this.lots = concatRes));
+              .subscribe((concatRes: IRefGeoSecteur[]) => (this.secteurs = concatRes));
           }
         });
     });
@@ -64,7 +64,7 @@ export class RefGeoSectionUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: refGeoSection.id,
       sectionName: refGeoSection.sectionName,
-      lot: refGeoSection.lot,
+      secteur: refGeoSection.secteur,
     });
   }
 
@@ -87,7 +87,7 @@ export class RefGeoSectionUpdateComponent implements OnInit {
       ...new RefGeoSection(),
       id: this.editForm.get(['id'])!.value,
       sectionName: this.editForm.get(['sectionName'])!.value,
-      lot: this.editForm.get(['lot'])!.value,
+      secteur: this.editForm.get(['secteur'])!.value,
     };
   }
 
@@ -107,7 +107,7 @@ export class RefGeoSectionUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IRefGeoLot): any {
+  trackById(index: number, item: IRefGeoSecteur): any {
     return item.id;
   }
 }

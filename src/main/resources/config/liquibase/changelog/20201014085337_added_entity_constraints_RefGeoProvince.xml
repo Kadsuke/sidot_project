@@ -8,11 +8,11 @@
     -->
     <changeSet id="20201014085337-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="commune_id"
+        <addForeignKeyConstraint baseColumnNames="region_id"
                                  baseTableName="ref_geo_province"
-                                 constraintName="fk_ref_geo_province_commune_id"
+                                 constraintName="fk_ref_geo_province_region_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="ref_geo_commune"/>
+                                 referencedTableName="ref_geo_region"/>
 
     </changeSet>
 </databaseChangeLog>

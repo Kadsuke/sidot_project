@@ -17,7 +17,7 @@
         "title": "Ref Geo Localite"
       },
       "localiteName": "Localite Name",
-      "secteur": "Secteur"
+      "commune": "Commune"
     }
   }
 }

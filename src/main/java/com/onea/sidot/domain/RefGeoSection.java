@@ -27,7 +27,7 @@ public class RefGeoSection implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private RefGeoLot lot;
+    private RefGeoSecteur secteur;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,17 +51,17 @@ public class RefGeoSection implements Serializable {
         this.sectionName = sectionName;
     }
 
-    public RefGeoLot getLot() {
-        return lot;
+    public RefGeoSecteur getSecteur() {
+        return secteur;
     }
 
-    public RefGeoSection lot(RefGeoLot refGeoLot) {
-        this.lot = refGeoLot;
+    public RefGeoSection secteur(RefGeoSecteur refGeoSecteur) {
+        this.secteur = refGeoSecteur;
         return this;
     }
 
-    public void setLot(RefGeoLot refGeoLot) {
-        this.lot = refGeoLot;
+    public void setSecteur(RefGeoSecteur refGeoSecteur) {
+        this.secteur = refGeoSecteur;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

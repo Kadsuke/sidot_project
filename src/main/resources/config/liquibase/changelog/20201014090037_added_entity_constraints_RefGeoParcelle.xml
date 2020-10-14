@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
     <!--
-        Added the constraints for entity RefGeoLocalite.
+        Added the constraints for entity RefGeoParcelle.
     -->
-    <changeSet id="20201014085637-2" author="jhipster">
+    <changeSet id="20201014090037-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="commune_id"
-                                 baseTableName="ref_geo_localite"
-                                 constraintName="fk_ref_geo_localite_commune_id"
+        <addForeignKeyConstraint baseColumnNames="lot_id"
+                                 baseTableName="ref_geo_parcelle"
+                                 constraintName="fk_ref_geo_parcelle_lot_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="ref_geo_commune"/>
+                                 referencedTableName="ref_geo_lot"/>
 
     </changeSet>
 </databaseChangeLog>

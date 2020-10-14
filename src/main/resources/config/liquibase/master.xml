@@ -32,6 +32,7 @@
     <include file="config/liquibase/changelog/20201014085737_added_entity_constraints_RefGeoSecteur.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201014085837_added_entity_constraints_RefGeoSection.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201014085937_added_entity_constraints_RefGeoLot.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014090037_added_entity_constraints_RefGeoParcelle.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
