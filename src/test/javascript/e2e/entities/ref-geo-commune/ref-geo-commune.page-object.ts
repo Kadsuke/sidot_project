@@ -31,7 +31,8 @@ export class RefGeoCommuneUpdatePage {
 
   communeNameInput = element(by.id('field_communeName'));
 
-  localiteSelect = element(by.id('field_localite'));
+  provinceSelect = element(by.id('field_province'));
+  typecommuneSelect = element(by.id('field_typecommune'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -45,20 +46,36 @@ export class RefGeoCommuneUpdatePage {
     return await this.communeNameInput.getAttribute('value');
   }
 
-  async localiteSelectLastOption(): Promise<void> {
-    await this.localiteSelect.all(by.tagName('option')).last().click();
+  async provinceSelectLastOption(): Promise<void> {
+    await this.provinceSelect.all(by.tagName('option')).last().click();
   }
 
-  async localiteSelectOption(option: string): Promise<void> {
-    await this.localiteSelect.sendKeys(option);
+  async provinceSelectOption(option: string): Promise<void> {
+    await this.provinceSelect.sendKeys(option);
   }
 
-  getLocaliteSelect(): ElementFinder {
-    return this.localiteSelect;
+  getProvinceSelect(): ElementFinder {
+    return this.provinceSelect;
   }
 
-  async getLocaliteSelectedOption(): Promise<string> {
-    return await this.localiteSelect.element(by.css('option:checked')).getText();
+  async getProvinceSelectedOption(): Promise<string> {
+    return await this.provinceSelect.element(by.css('option:checked')).getText();
+  }
+
+  async typecommuneSelectLastOption(): Promise<void> {
+    await this.typecommuneSelect.all(by.tagName('option')).last().click();
+  }
+
+  async typecommuneSelectOption(option: string): Promise<void> {
+    await this.typecommuneSelect.sendKeys(option);
+  }
+
+  getTypecommuneSelect(): ElementFinder {
+    return this.typecommuneSelect;
+  }
+
+  async getTypecommuneSelectedOption(): Promise<string> {
+    return await this.typecommuneSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

@@ -6,7 +6,16 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoLot",
+      "otherEntityRelationshipName": "refGeoParcelle",
+      "relationshipName": "lot",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
   "changelogDate": "20201014090037",
   "entityTableName": "ref_geo_parcelle",
   "dto": "no",

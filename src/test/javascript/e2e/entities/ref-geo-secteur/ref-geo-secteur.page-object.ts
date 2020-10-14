@@ -31,7 +31,7 @@ export class RefGeoSecteurUpdatePage {
 
   secteurNameInput = element(by.id('field_secteurName'));
 
-  sectionSelect = element(by.id('field_section'));
+  localiteSelect = element(by.id('field_localite'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -45,20 +45,20 @@ export class RefGeoSecteurUpdatePage {
     return await this.secteurNameInput.getAttribute('value');
   }
 
-  async sectionSelectLastOption(): Promise<void> {
-    await this.sectionSelect.all(by.tagName('option')).last().click();
+  async localiteSelectLastOption(): Promise<void> {
+    await this.localiteSelect.all(by.tagName('option')).last().click();
   }
 
-  async sectionSelectOption(option: string): Promise<void> {
-    await this.sectionSelect.sendKeys(option);
+  async localiteSelectOption(option: string): Promise<void> {
+    await this.localiteSelect.sendKeys(option);
   }
 
-  getSectionSelect(): ElementFinder {
-    return this.sectionSelect;
+  getLocaliteSelect(): ElementFinder {
+    return this.localiteSelect;
   }
 
-  async getSectionSelectedOption(): Promise<string> {
-    return await this.sectionSelect.element(by.css('option:checked')).getText();
+  async getLocaliteSelectedOption(): Promise<string> {
+    return await this.localiteSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

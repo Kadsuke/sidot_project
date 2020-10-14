@@ -12,10 +12,10 @@
                 <dd>
                     <span>{{ refGeoSection.sectionName }}</span>
                 </dd>
-                <dt><span jhiTranslate="sidotApp.refGeoSection.lot">Lot</span></dt>
+                <dt><span jhiTranslate="sidotApp.refGeoSection.secteur">Secteur</span></dt>
                 <dd>
-                    <div *ngIf="refGeoSection.lot">
-                        <a [routerLink]="['/ref-geo-lot', refGeoSection.lot?.id, 'view']">{{ refGeoSection.lot?.id }}</a>
+                    <div *ngIf="refGeoSection.secteur">
+                        <a [routerLink]="['/ref-geo-secteur', refGeoSection.secteur?.id, 'view']">{{ refGeoSection.secteur?.id }}</a>
                     </div>
                 </dd>
             </dl>

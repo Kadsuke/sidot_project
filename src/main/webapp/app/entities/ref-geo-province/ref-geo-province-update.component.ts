@@ -8,8 +8,8 @@ import { map } from 'rxjs/operators';
 
 import { IRefGeoProvince, RefGeoProvince } from 'app/shared/model/ref-geo-province.model';
 import { RefGeoProvinceService } from './ref-geo-province.service';
-import { IRefGeoCommune } from 'app/shared/model/ref-geo-commune.model';
-import { RefGeoCommuneService } from 'app/entities/ref-geo-commune/ref-geo-commune.service';
+import { IRefGeoRegion } from 'app/shared/model/ref-geo-region.model';
+import { RefGeoRegionService } from 'app/entities/ref-geo-region/ref-geo-region.service';
 
 @Component({
   selector: 'jhi-ref-geo-province-update',
@@ -17,17 +17,17 @@ import { RefGeoCommuneService } from 'app/entities/ref-geo-commune/ref-geo-commu
 })
 export class RefGeoProvinceUpdateComponent implements OnInit {
   isSaving = false;
-  communes: IRefGeoCommune[] = [];
+  regions: IRefGeoRegion[] = [];
 
   editForm = this.fb.group({
     id: [],
     provinceName: [],
-    commune: [],
+    region: [],
   });
 
   constructor(
     protected refGeoProvinceService: RefGeoProvinceService,
-    protected refGeoCommuneService: RefGeoCommuneService,
+    protected refGeoRegionService: RefGeoRegionService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,25 +36,25 @@ export class RefGeoProvinceUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ refGeoProvince }) => {
       this.updateForm(refGeoProvince);
 
-      this.refGeoCommuneService
+      this.refGeoRegionService
         .query({ filter: 'refgeoprovince-is-null' })
         .pipe(
-          map((res: HttpResponse<IRefGeoCommune[]>) => {
+          map((res: HttpResponse<IRefGeoRegion[]>) => {
             return res.body || [];
           })
         )
-        .subscribe((resBody: IRefGeoCommune[]) => {
-          if (!refGeoProvince.commune || !refGeoProvince.commune.id) {
-            this.communes = resBody;
+        .subscribe((resBody: IRefGeoRegion[]) => {
+          if (!refGeoProvince.region || !refGeoProvince.region.id) {
+            this.regions = resBody;
           } else {
-            this.refGeoCommuneService
-              .find(refGeoProvince.commune.id)
+            this.refGeoRegionService
+              .find(refGeoProvince.region.id)
               .pipe(
-                map((subRes: HttpResponse<IRefGeoCommune>) => {
+                map((subRes: HttpResponse<IRefGeoRegion>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IRefGeoCommune[]) => (this.communes = concatRes));
+              .subscribe((concatRes: IRefGeoRegion[]) => (this.regions = concatRes));
           }
         });
     });
@@ -64,7 +64,7 @@ export class RefGeoProvinceUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: refGeoProvince.id,
       provinceName: refGeoProvince.provinceName,
-      commune: refGeoProvince.commune,
+      region: refGeoProvince.region,
     });
   }
 
@@ -87,7 +87,7 @@ export class RefGeoProvinceUpdateComponent implements OnInit {
       ...new RefGeoProvince(),
       id: this.editForm.get(['id'])!.value,
       provinceName: this.editForm.get(['provinceName'])!.value,
-      commune: this.editForm.get(['commune'])!.value,
+      region: this.editForm.get(['region'])!.value,
     };
   }
 
@@ -107,7 +107,7 @@ export class RefGeoProvinceUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IRefGeoCommune): any {
+  trackById(index: number, item: IRefGeoRegion): any {
     return item.id;
   }
 }

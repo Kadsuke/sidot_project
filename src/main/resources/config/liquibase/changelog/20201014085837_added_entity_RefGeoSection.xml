@@ -18,8 +18,8 @@
             <column name="section_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="lot_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ref_geo_section_lot_id" />
+            <column name="secteur_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ref_geo_section_secteur_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

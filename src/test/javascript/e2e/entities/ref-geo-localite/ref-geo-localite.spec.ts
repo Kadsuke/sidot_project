@@ -43,7 +43,7 @@ describe('RefGeoLocalite e2e test', () => {
 
     await refGeoLocaliteComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoLocaliteUpdatePage.setLocaliteNameInput('localiteName'), refGeoLocaliteUpdatePage.secteurSelectLastOption()]);
+    await promise.all([refGeoLocaliteUpdatePage.setLocaliteNameInput('localiteName'), refGeoLocaliteUpdatePage.communeSelectLastOption()]);
 
     expect(await refGeoLocaliteUpdatePage.getLocaliteNameInput()).to.eq(
       'localiteName',

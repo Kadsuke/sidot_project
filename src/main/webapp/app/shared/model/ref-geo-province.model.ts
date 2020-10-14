@@ -1,11 +1,11 @@
-import { IRefGeoCommune } from 'app/shared/model/ref-geo-commune.model';
+import { IRefGeoRegion } from 'app/shared/model/ref-geo-region.model';
 
 export interface IRefGeoProvince {
   id?: number;
   provinceName?: string;
-  commune?: IRefGeoCommune;
+  region?: IRefGeoRegion;
 }
 
 export class RefGeoProvince implements IRefGeoProvince {
-  constructor(public id?: number, public provinceName?: string, public commune?: IRefGeoCommune) {}
+  constructor(public id?: number, public provinceName?: string, public region?: IRefGeoRegion) {}
 }

@@ -24,7 +24,7 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="provinceName"><span jhiTranslate="sidotApp.refGeoProvince.provinceName">Province Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="commune.id"><span jhiTranslate="sidotApp.refGeoProvince.commune">Commune</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="region.id"><span jhiTranslate="sidotApp.refGeoProvince.region">Region</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -33,8 +33,8 @@
                     <td><a [routerLink]="['/ref-geo-province', refGeoProvince.id, 'view']">{{ refGeoProvince.id }}</a></td>
                     <td>{{ refGeoProvince.provinceName }}</td>
                     <td>
-                        <div *ngIf="refGeoProvince.commune">
-                            <a [routerLink]="['/ref-geo-commune', refGeoProvince.commune?.id, 'view']" >{{ refGeoProvince.commune?.id }}</a>
+                        <div *ngIf="refGeoProvince.region">
+                            <a [routerLink]="['/ref-geo-region', refGeoProvince.region?.id, 'view']" >{{ refGeoProvince.region?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

@@ -43,7 +43,7 @@ describe('RefGeoSecteur e2e test', () => {
 
     await refGeoSecteurComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoSecteurUpdatePage.setSecteurNameInput('secteurName'), refGeoSecteurUpdatePage.sectionSelectLastOption()]);
+    await promise.all([refGeoSecteurUpdatePage.setSecteurNameInput('secteurName'), refGeoSecteurUpdatePage.localiteSelectLastOption()]);
 
     expect(await refGeoSecteurUpdatePage.getSecteurNameInput()).to.eq(
       'secteurName',

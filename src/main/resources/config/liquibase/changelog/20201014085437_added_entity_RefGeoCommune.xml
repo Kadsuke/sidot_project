@@ -18,8 +18,11 @@
             <column name="commune_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="localite_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ref_geo_commune_localite_id" />
+            <column name="province_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ref_geo_commune_province_id" />
+            </column>
+            <column name="typecommune_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ref_geo_commune_typecommune_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

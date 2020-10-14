@@ -31,6 +31,8 @@ export class RefGeoParcelleUpdatePage {
 
   parcelleNameInput = element(by.id('field_parcelleName'));
 
+  lotSelect = element(by.id('field_lot'));
+
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
@@ -41,6 +43,22 @@ export class RefGeoParcelleUpdatePage {
 
   async getParcelleNameInput(): Promise<string> {
     return await this.parcelleNameInput.getAttribute('value');
+  }
+
+  async lotSelectLastOption(): Promise<void> {
+    await this.lotSelect.all(by.tagName('option')).last().click();
+  }
+
+  async lotSelectOption(option: string): Promise<void> {
+    await this.lotSelect.sendKeys(option);
+  }
+
+  getLotSelect(): ElementFinder {
+    return this.lotSelect;
+  }
+
+  async getLotSelectedOption(): Promise<string> {
+    return await this.lotSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

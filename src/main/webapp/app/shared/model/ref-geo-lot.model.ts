@@ -1,11 +1,11 @@
-import { IRefGeoParcelle } from 'app/shared/model/ref-geo-parcelle.model';
+import { IRefGeoSection } from 'app/shared/model/ref-geo-section.model';
 
 export interface IRefGeoLot {
   id?: number;
   lotName?: string;
-  parcelle?: IRefGeoParcelle;
+  section?: IRefGeoSection;
 }
 
 export class RefGeoLot implements IRefGeoLot {
-  constructor(public id?: number, public lotName?: string, public parcelle?: IRefGeoParcelle) {}
+  constructor(public id?: number, public lotName?: string, public section?: IRefGeoSection) {}
 }

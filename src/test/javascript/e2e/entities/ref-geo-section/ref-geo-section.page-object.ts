@@ -31,7 +31,7 @@ export class RefGeoSectionUpdatePage {
 
   sectionNameInput = element(by.id('field_sectionName'));
 
-  lotSelect = element(by.id('field_lot'));
+  secteurSelect = element(by.id('field_secteur'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -45,20 +45,20 @@ export class RefGeoSectionUpdatePage {
     return await this.sectionNameInput.getAttribute('value');
   }
 
-  async lotSelectLastOption(): Promise<void> {
-    await this.lotSelect.all(by.tagName('option')).last().click();
+  async secteurSelectLastOption(): Promise<void> {
+    await this.secteurSelect.all(by.tagName('option')).last().click();
   }
 
-  async lotSelectOption(option: string): Promise<void> {
-    await this.lotSelect.sendKeys(option);
+  async secteurSelectOption(option: string): Promise<void> {
+    await this.secteurSelect.sendKeys(option);
   }
 
-  getLotSelect(): ElementFinder {
-    return this.lotSelect;
+  getSecteurSelect(): ElementFinder {
+    return this.secteurSelect;
   }
 
-  async getLotSelectedOption(): Promise<string> {
-    return await this.lotSelect.element(by.css('option:checked')).getText();
+  async getSecteurSelectedOption(): Promise<string> {
+    return await this.secteurSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

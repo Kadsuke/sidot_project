@@ -31,7 +31,7 @@ export class RefGeoProvinceUpdatePage {
 
   provinceNameInput = element(by.id('field_provinceName'));
 
-  communeSelect = element(by.id('field_commune'));
+  regionSelect = element(by.id('field_region'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -45,20 +45,20 @@ export class RefGeoProvinceUpdatePage {
     return await this.provinceNameInput.getAttribute('value');
   }
 
-  async communeSelectLastOption(): Promise<void> {
-    await this.communeSelect.all(by.tagName('option')).last().click();
+  async regionSelectLastOption(): Promise<void> {
+    await this.regionSelect.all(by.tagName('option')).last().click();
   }
 
-  async communeSelectOption(option: string): Promise<void> {
-    await this.communeSelect.sendKeys(option);
+  async regionSelectOption(option: string): Promise<void> {
+    await this.regionSelect.sendKeys(option);
   }
 
-  getCommuneSelect(): ElementFinder {
-    return this.communeSelect;
+  getRegionSelect(): ElementFinder {
+    return this.regionSelect;
   }
 
-  async getCommuneSelectedOption(): Promise<string> {
-    return await this.communeSelect.element(by.css('option:checked')).getText();
+  async getRegionSelectedOption(): Promise<string> {
+    return await this.regionSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

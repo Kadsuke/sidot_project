@@ -18,10 +18,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoSection.lot" for="field_lot">Lot</label>
-                    <select class="form-control" id="field_lot" name="lot" formControlName="lot">
+                    <label class="form-control-label" jhiTranslate="sidotApp.refGeoSection.secteur" for="field_secteur">Secteur</label>
+                    <select class="form-control" id="field_secteur" name="secteur" formControlName="secteur">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="refGeoLotOption.id === editForm.get('lot')!.value?.id ? editForm.get('lot')!.value : refGeoLotOption" *ngFor="let refGeoLotOption of lots; trackBy: trackById">{{ refGeoLotOption.id }}</option>
+                        <option [ngValue]="refGeoSecteurOption.id === editForm.get('secteur')!.value?.id ? editForm.get('secteur')!.value : refGeoSecteurOption" *ngFor="let refGeoSecteurOption of secteurs; trackBy: trackById">{{ refGeoSecteurOption.id }}</option>
                     </select>
                 </div>
             </div>

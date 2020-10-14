@@ -24,7 +24,6 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="typeName"><span jhiTranslate="sidotApp.refGeoTypeCommune.typeName">Type Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="commune.id"><span jhiTranslate="sidotApp.refGeoTypeCommune.commune">Commune</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -32,11 +31,6 @@
                 <tr *ngFor="let refGeoTypeCommune of refGeoTypeCommunes ;trackBy: trackId">
                     <td><a [routerLink]="['/ref-geo-type-commune', refGeoTypeCommune.id, 'view']">{{ refGeoTypeCommune.id }}</a></td>
                     <td>{{ refGeoTypeCommune.typeName }}</td>
-                    <td>
-                        <div *ngIf="refGeoTypeCommune.commune">
-                            <a [routerLink]="['/ref-geo-commune', refGeoTypeCommune.commune?.id, 'view']" >{{ refGeoTypeCommune.commune?.id }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

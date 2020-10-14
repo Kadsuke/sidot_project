@@ -25,10 +25,6 @@ public class RefGeoTypeCommune implements Serializable {
     @Column(name = "type_name")
     private String typeName;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private RefGeoCommune commune;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -49,19 +45,6 @@ public class RefGeoTypeCommune implements Serializable {
 
     public void setTypeName(String typeName) {
         this.typeName = typeName;
-    }
-
-    public RefGeoCommune getCommune() {
-        return commune;
-    }
-
-    public RefGeoTypeCommune commune(RefGeoCommune refGeoCommune) {
-        this.commune = refGeoCommune;
-        return this;
-    }
-
-    public void setCommune(RefGeoCommune refGeoCommune) {
-        this.commune = refGeoCommune;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

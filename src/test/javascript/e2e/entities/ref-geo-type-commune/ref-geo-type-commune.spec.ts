@@ -47,7 +47,7 @@ describe('RefGeoTypeCommune e2e test', () => {
 
     await refGeoTypeCommuneComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoTypeCommuneUpdatePage.setTypeNameInput('typeName'), refGeoTypeCommuneUpdatePage.communeSelectLastOption()]);
+    await promise.all([refGeoTypeCommuneUpdatePage.setTypeNameInput('typeName')]);
 
     expect(await refGeoTypeCommuneUpdatePage.getTypeNameInput()).to.eq('typeName', 'Expected TypeName value to be equals to typeName');
 

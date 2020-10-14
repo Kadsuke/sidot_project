@@ -24,7 +24,7 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="secteurName"><span jhiTranslate="sidotApp.refGeoSecteur.secteurName">Secteur Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="section.id"><span jhiTranslate="sidotApp.refGeoSecteur.section">Section</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="localite.id"><span jhiTranslate="sidotApp.refGeoSecteur.localite">Localite</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -33,8 +33,8 @@
                     <td><a [routerLink]="['/ref-geo-secteur', refGeoSecteur.id, 'view']">{{ refGeoSecteur.id }}</a></td>
                     <td>{{ refGeoSecteur.secteurName }}</td>
                     <td>
-                        <div *ngIf="refGeoSecteur.section">
-                            <a [routerLink]="['/ref-geo-section', refGeoSecteur.section?.id, 'view']" >{{ refGeoSecteur.section?.id }}</a>
+                        <div *ngIf="refGeoSecteur.localite">
+                            <a [routerLink]="['/ref-geo-localite', refGeoSecteur.localite?.id, 'view']" >{{ refGeoSecteur.localite?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

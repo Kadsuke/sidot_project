@@ -8,8 +8,12 @@ import { map } from 'rxjs/operators';
 
 import { IRefGeoCommune, RefGeoCommune } from 'app/shared/model/ref-geo-commune.model';
 import { RefGeoCommuneService } from './ref-geo-commune.service';
-import { IRefGeoLocalite } from 'app/shared/model/ref-geo-localite.model';
-import { RefGeoLocaliteService } from 'app/entities/ref-geo-localite/ref-geo-localite.service';
+import { IRefGeoProvince } from 'app/shared/model/ref-geo-province.model';
+import { RefGeoProvinceService } from 'app/entities/ref-geo-province/ref-geo-province.service';
+import { IRefGeoTypeCommune } from 'app/shared/model/ref-geo-type-commune.model';
+import { RefGeoTypeCommuneService } from 'app/entities/ref-geo-type-commune/ref-geo-type-commune.service';
+
+type SelectableEntity = IRefGeoProvince | IRefGeoTypeCommune;
 
 @Component({
   selector: 'jhi-ref-geo-commune-update',
@@ -17,17 +21,20 @@ import { RefGeoLocaliteService } from 'app/entities/ref-geo-localite/ref-geo-loc
 })
 export class RefGeoCommuneUpdateComponent implements OnInit {
   isSaving = false;
-  localites: IRefGeoLocalite[] = [];
+  provinces: IRefGeoProvince[] = [];
+  typecommunes: IRefGeoTypeCommune[] = [];
 
   editForm = this.fb.group({
     id: [],
     communeName: [],
-    localite: [],
+    province: [],
+    typecommune: [],
   });
 
   constructor(
     protected refGeoCommuneService: RefGeoCommuneService,
-    protected refGeoLocaliteService: RefGeoLocaliteService,
+    protected refGeoProvinceService: RefGeoProvinceService,
+    protected refGeoTypeCommuneService: RefGeoTypeCommuneService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,25 +43,47 @@ export class RefGeoCommuneUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ refGeoCommune }) => {
       this.updateForm(refGeoCommune);
 
-      this.refGeoLocaliteService
+      this.refGeoProvinceService
         .query({ filter: 'refgeocommune-is-null' })
         .pipe(
-          map((res: HttpResponse<IRefGeoLocalite[]>) => {
+          map((res: HttpResponse<IRefGeoProvince[]>) => {
             return res.body || [];
           })
         )
-        .subscribe((resBody: IRefGeoLocalite[]) => {
-          if (!refGeoCommune.localite || !refGeoCommune.localite.id) {
-            this.localites = resBody;
+        .subscribe((resBody: IRefGeoProvince[]) => {
+          if (!refGeoCommune.province || !refGeoCommune.province.id) {
+            this.provinces = resBody;
           } else {
-            this.refGeoLocaliteService
-              .find(refGeoCommune.localite.id)
+            this.refGeoProvinceService
+              .find(refGeoCommune.province.id)
               .pipe(
-                map((subRes: HttpResponse<IRefGeoLocalite>) => {
+                map((subRes: HttpResponse<IRefGeoProvince>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IRefGeoLocalite[]) => (this.localites = concatRes));
+              .subscribe((concatRes: IRefGeoProvince[]) => (this.provinces = concatRes));
+          }
+        });
+
+      this.refGeoTypeCommuneService
+        .query({ filter: 'refgeocommune-is-null' })
+        .pipe(
+          map((res: HttpResponse<IRefGeoTypeCommune[]>) => {
+            return res.body || [];
+          })
+        )
+        .subscribe((resBody: IRefGeoTypeCommune[]) => {
+          if (!refGeoCommune.typecommune || !refGeoCommune.typecommune.id) {
+            this.typecommunes = resBody;
+          } else {
+            this.refGeoTypeCommuneService
+              .find(refGeoCommune.typecommune.id)
+              .pipe(
+                map((subRes: HttpResponse<IRefGeoTypeCommune>) => {
+                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
+                })
+              )
+              .subscribe((concatRes: IRefGeoTypeCommune[]) => (this.typecommunes = concatRes));
           }
         });
     });
@@ -64,7 +93,8 @@ export class RefGeoCommuneUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: refGeoCommune.id,
       communeName: refGeoCommune.communeName,
-      localite: refGeoCommune.localite,
+      province: refGeoCommune.province,
+      typecommune: refGeoCommune.typecommune,
     });
   }
 
@@ -87,7 +117,8 @@ export class RefGeoCommuneUpdateComponent implements OnInit {
       ...new RefGeoCommune(),
       id: this.editForm.get(['id'])!.value,
       communeName: this.editForm.get(['communeName'])!.value,
-      localite: this.editForm.get(['localite'])!.value,
+      province: this.editForm.get(['province'])!.value,
+      typecommune: this.editForm.get(['typecommune'])!.value,
     };
   }
 
@@ -107,7 +138,7 @@ export class RefGeoCommuneUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IRefGeoLocalite): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

@@ -43,7 +43,7 @@ describe('RefGeoProvince e2e test', () => {
 
     await refGeoProvinceComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoProvinceUpdatePage.setProvinceNameInput('provinceName'), refGeoProvinceUpdatePage.communeSelectLastOption()]);
+    await promise.all([refGeoProvinceUpdatePage.setProvinceNameInput('provinceName'), refGeoProvinceUpdatePage.regionSelectLastOption()]);
 
     expect(await refGeoProvinceUpdatePage.getProvinceNameInput()).to.eq(
       'provinceName',

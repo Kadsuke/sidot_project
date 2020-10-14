@@ -43,7 +43,7 @@ describe('RefGeoParcelle e2e test', () => {
 
     await refGeoParcelleComponentsPage.clickOnCreateButton();
 
-    await promise.all([refGeoParcelleUpdatePage.setParcelleNameInput('parcelleName')]);
+    await promise.all([refGeoParcelleUpdatePage.setParcelleNameInput('parcelleName'), refGeoParcelleUpdatePage.lotSelectLastOption()]);
 
     expect(await refGeoParcelleUpdatePage.getParcelleNameInput()).to.eq(
       'parcelleName',

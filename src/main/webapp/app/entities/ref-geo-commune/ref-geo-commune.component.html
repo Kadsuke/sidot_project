@@ -24,7 +24,8 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="communeName"><span jhiTranslate="sidotApp.refGeoCommune.communeName">Commune Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="localite.id"><span jhiTranslate="sidotApp.refGeoCommune.localite">Localite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province.id"><span jhiTranslate="sidotApp.refGeoCommune.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typecommune.id"><span jhiTranslate="sidotApp.refGeoCommune.typecommune">Typecommune</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -33,8 +34,13 @@
                     <td><a [routerLink]="['/ref-geo-commune', refGeoCommune.id, 'view']">{{ refGeoCommune.id }}</a></td>
                     <td>{{ refGeoCommune.communeName }}</td>
                     <td>
-                        <div *ngIf="refGeoCommune.localite">
-                            <a [routerLink]="['/ref-geo-localite', refGeoCommune.localite?.id, 'view']" >{{ refGeoCommune.localite?.id }}</a>
+                        <div *ngIf="refGeoCommune.province">
+                            <a [routerLink]="['/ref-geo-province', refGeoCommune.province?.id, 'view']" >{{ refGeoCommune.province?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="refGeoCommune.typecommune">
+                            <a [routerLink]="['/ref-geo-type-commune', refGeoCommune.typecommune?.id, 'view']" >{{ refGeoCommune.typecommune?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

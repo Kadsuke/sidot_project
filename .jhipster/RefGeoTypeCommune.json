@@ -6,16 +6,7 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "refGeoCommune",
-      "otherEntityRelationshipName": "refGeoTypeCommune",
-      "relationshipName": "commune",
-      "otherEntityField": "id",
-      "ownerSide": true
-    }
-  ],
+  "relationships": [],
   "changelogDate": "20201014085537",
   "entityTableName": "ref_geo_type_commune",
   "dto": "no",

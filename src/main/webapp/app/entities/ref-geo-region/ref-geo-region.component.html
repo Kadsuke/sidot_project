@@ -24,7 +24,6 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="regionName"><span jhiTranslate="sidotApp.refGeoRegion.regionName">Region Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="province.id"><span jhiTranslate="sidotApp.refGeoRegion.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -32,11 +31,6 @@
                 <tr *ngFor="let refGeoRegion of refGeoRegions ;trackBy: trackId">
                     <td><a [routerLink]="['/ref-geo-region', refGeoRegion.id, 'view']">{{ refGeoRegion.id }}</a></td>
                     <td>{{ refGeoRegion.regionName }}</td>
-                    <td>
-                        <div *ngIf="refGeoRegion.province">
-                            <a [routerLink]="['/ref-geo-province', refGeoRegion.province?.id, 'view']" >{{ refGeoRegion.province?.id }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

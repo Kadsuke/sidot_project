@@ -18,6 +18,9 @@
             <column name="parcelle_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="lot_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ref_geo_parcelle_lot_id" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>

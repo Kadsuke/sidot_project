@@ -16,7 +16,8 @@
       "detail": {
         "title": "Ref Geo Parcelle"
       },
-      "parcelleName": "Parcelle Name"
+      "parcelleName": "Parcelle Name",
+      "lot": "Lot"
     }
   }
 }
