@@ -36,35 +36,35 @@ entity RefGeoParcelle {
 }
 
 relationship OneToOne {
-	RefGeoRegion{province} to RefGeoProvince
+	RefGeoProvince{region} to RefGeoRegion
 }
 
 relationship OneToOne {
-	RefGeoProvince{commune} to RefGeoCommune
+	RefGeoCommune{province} to RefGeoProvince
 }
 
 relationship OneToOne {
-	RefGeoTypeCommune{commune} to RefGeoCommune
+	RefGeoCommune{typecommune} to RefGeoTypeCommune
 }
 
 relationship OneToOne {
-	RefGeoCommune{localite} to RefGeoLocalite
+	RefGeoLocalite{commune} to RefGeoCommune
 }
 
 relationship OneToOne {
-	RefGeoLocalite{secteur} to RefGeoSecteur
+	RefGeoSecteur{localite} to RefGeoLocalite
 }
 
 relationship OneToOne {
-	RefGeoSecteur{section} to RefGeoSection
+	RefGeoSection{secteur} to RefGeoSecteur
 }
 
 relationship OneToOne {
-	RefGeoSection{lot} to RefGeoLot
+	RefGeoLot{section} to RefGeoSection
 }
 
 relationship OneToOne {
-	RefGeoLot{parcelle} to RefGeoParcelle
+	RefGeoParcelle{lot} to RefGeoLot
 }
 // Set pagination options
 paginate RefGeoRegion, RefGeoProvince
