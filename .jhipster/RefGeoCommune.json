@@ -1,0 +1,30 @@
+{
+  "name": "RefGeoCommune",
+  "fields": [
+    {
+      "fieldName": "communeName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoLocalite",
+      "otherEntityRelationshipName": "refGeoCommune",
+      "relationshipName": "localite",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201014085437",
+  "entityTableName": "ref_geo_commune",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

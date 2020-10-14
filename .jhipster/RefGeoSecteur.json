@@ -1,0 +1,30 @@
+{
+  "name": "RefGeoSecteur",
+  "fields": [
+    {
+      "fieldName": "secteurName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoSection",
+      "otherEntityRelationshipName": "refGeoSecteur",
+      "relationshipName": "section",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201014085737",
+  "entityTableName": "ref_geo_secteur",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

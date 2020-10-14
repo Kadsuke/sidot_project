@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refGeoLocalite">
+            <h2><span jhiTranslate="sidotApp.refGeoLocalite.detail.title">Ref Geo Localite</span> {{ refGeoLocalite.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.refGeoLocalite.localiteName">Localite Name</span></dt>
+                <dd>
+                    <span>{{ refGeoLocalite.localiteName }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.refGeoLocalite.secteur">Secteur</span></dt>
+                <dd>
+                    <div *ngIf="refGeoLocalite.secteur">
+                        <a [routerLink]="['/ref-geo-secteur', refGeoLocalite.secteur?.id, 'view']">{{ refGeoLocalite.secteur?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ref-geo-localite', refGeoLocalite.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "refGeoLocalite": {
+      "home": {
+        "title": "RefGeoLocalites",
+        "createLabel": "Créer un nouveau Ref Geo Localite",
+        "createOrEditLabel": "Créer ou éditer un Ref Geo Localite",
+        "notFound": "Aucun Ref Geo Localite trouvé"
+      },
+      "created": "Un nouveau Ref Geo Localite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Geo Localite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Geo Localite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Geo Localite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Geo Localite"
+      },
+      "localiteName": "Localite Name",
+      "secteur": "Secteur"
+    }
+  }
+}

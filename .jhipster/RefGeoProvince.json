@@ -1,0 +1,30 @@
+{
+  "name": "RefGeoProvince",
+  "fields": [
+    {
+      "fieldName": "provinceName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refGeoCommune",
+      "otherEntityRelationshipName": "refGeoProvince",
+      "relationshipName": "commune",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201014085337",
+  "entityTableName": "ref_geo_province",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

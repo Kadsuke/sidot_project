@@ -14,7 +14,24 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085237_added_entity_RefGeoRegion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085337_added_entity_RefGeoProvince.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085437_added_entity_RefGeoCommune.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085537_added_entity_RefGeoTypeCommune.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085637_added_entity_RefGeoLocalite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085737_added_entity_RefGeoSecteur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085837_added_entity_RefGeoSection.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085937_added_entity_RefGeoLot.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014090037_added_entity_RefGeoParcelle.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20201014085237_added_entity_constraints_RefGeoRegion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085337_added_entity_constraints_RefGeoProvince.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085437_added_entity_constraints_RefGeoCommune.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085537_added_entity_constraints_RefGeoTypeCommune.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085637_added_entity_constraints_RefGeoLocalite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085737_added_entity_constraints_RefGeoSecteur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085837_added_entity_constraints_RefGeoSection.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201014085937_added_entity_constraints_RefGeoLot.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

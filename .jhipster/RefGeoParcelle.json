@@ -1,0 +1,21 @@
+{
+  "name": "RefGeoParcelle",
+  "fields": [
+    {
+      "fieldName": "parcelleName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201014090037",
+  "entityTableName": "ref_geo_parcelle",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

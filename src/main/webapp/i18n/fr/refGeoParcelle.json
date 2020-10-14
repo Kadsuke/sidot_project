@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "refGeoParcelle": {
+      "home": {
+        "title": "RefGeoParcelles",
+        "createLabel": "Créer un nouveau Ref Geo Parcelle",
+        "createOrEditLabel": "Créer ou éditer un Ref Geo Parcelle",
+        "notFound": "Aucun Ref Geo Parcelle trouvé"
+      },
+      "created": "Un nouveau Ref Geo Parcelle a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Geo Parcelle avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Geo Parcelle avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Geo Parcelle {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Geo Parcelle"
+      },
+      "parcelleName": "Parcelle Name"
+    }
+  }
+}

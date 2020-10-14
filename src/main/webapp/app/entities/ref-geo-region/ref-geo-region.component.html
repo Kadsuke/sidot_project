@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sidotApp.refGeoRegion.home.title">Ref Geo Regions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ref-geo-region" [routerLink]="['/ref-geo-region/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sidotApp.refGeoRegion.home.createLabel">
+            Create a new Ref Geo Region
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="refGeoRegions?.length === 0">
+        <span jhiTranslate="sidotApp.refGeoRegion.home.notFound">No refGeoRegions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="refGeoRegions && refGeoRegions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="regionName"><span jhiTranslate="sidotApp.refGeoRegion.regionName">Region Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="province.id"><span jhiTranslate="sidotApp.refGeoRegion.province">Province</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let refGeoRegion of refGeoRegions ;trackBy: trackId">
+                    <td><a [routerLink]="['/ref-geo-region', refGeoRegion.id, 'view']">{{ refGeoRegion.id }}</a></td>
+                    <td>{{ refGeoRegion.regionName }}</td>
+                    <td>
+                        <div *ngIf="refGeoRegion.province">
+                            <a [routerLink]="['/ref-geo-province', refGeoRegion.province?.id, 'view']" >{{ refGeoRegion.province?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ref-geo-region', refGeoRegion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ref-geo-region', refGeoRegion.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(refGeoRegion)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="refGeoRegions && refGeoRegions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

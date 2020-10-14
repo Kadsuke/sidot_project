@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refGeoSection">
+            <h2><span jhiTranslate="sidotApp.refGeoSection.detail.title">Ref Geo Section</span> {{ refGeoSection.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.refGeoSection.sectionName">Section Name</span></dt>
+                <dd>
+                    <span>{{ refGeoSection.sectionName }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.refGeoSection.lot">Lot</span></dt>
+                <dd>
+                    <div *ngIf="refGeoSection.lot">
+                        <a [routerLink]="['/ref-geo-lot', refGeoSection.lot?.id, 'view']">{{ refGeoSection.lot?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ref-geo-section', refGeoSection.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
