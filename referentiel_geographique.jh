@@ -1,0 +1,93 @@
+
+entity RefGeoRegion {
+	regionName String
+}
+
+entity RefGeoProvince {
+	provinceName String
+}
+
+entity RefGeoCommune {
+	communeName String
+}
+
+entity RefGeoTypeCommune {
+	typeName String
+}
+
+entity RefGeoLocalite {
+	localiteName String
+}
+
+entity RefGeoSecteur {
+	secteurName String
+}
+
+entity RefGeoSection {
+	sectionName String
+}
+
+entity RefGeoLot {
+	lotName String
+}
+
+entity RefGeoParcelle {
+	parcelleName String
+}
+
+relationship OneToOne {
+	RefGeoRegion{province} to RefGeoProvince
+}
+
+relationship OneToOne {
+	RefGeoProvince{commune} to RefGeoCommune
+}
+
+relationship OneToOne {
+	RefGeoTypeCommune{commune} to RefGeoCommune
+}
+
+relationship OneToOne {
+	RefGeoCommune{localite} to RefGeoLocalite
+}
+
+relationship OneToOne {
+	RefGeoLocalite{secteur} to RefGeoSecteur
+}
+
+relationship OneToOne {
+	RefGeoSecteur{section} to RefGeoSection
+}
+
+relationship OneToOne {
+	RefGeoSection{lot} to RefGeoLot
+}
+
+relationship OneToOne {
+	RefGeoLot{parcelle} to RefGeoParcelle
+}
+// Set pagination options
+paginate RefGeoRegion, RefGeoProvince
+, RefGeoCommune
+, RefGeoTypeCommune
+, RefGeoLocalite
+, RefGeoSecteur
+, RefGeoSection
+, RefGeoLot
+, RefGeoParcelle with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except RefGeoRegion, RefGeoProvince
+, RefGeoCommune
+, RefGeoTypeCommune
+, RefGeoLocalite
+, RefGeoSecteur
+, RefGeoSection
+, RefGeoLot
+, RefGeoParcelle
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
